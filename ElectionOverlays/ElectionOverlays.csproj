@@ -54,9 +54,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Speedometer.xaml.cs">
+      <DependentUpon>Speedometer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RenderWindow.xaml.cs">
       <DependentUpon>RenderWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Speedometer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +106,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\speedoneedle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\speedo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

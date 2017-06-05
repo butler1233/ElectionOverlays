@@ -1,13 +1,23 @@
-﻿<Window x:Class="ElectionOverlays.RenderWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectionOverlays"
+        xmlns:Controls="clr-namespace:ElectionOverlays.Controls" x:Name="ElectionRenderWindow" x:Class="ElectionOverlays.RenderWindow"
         mc:Ignorable="d"
-        Title="RenderWindow" Height="480" Width="853">
-    <Grid>
-        <Grid HorizontalAlignment="Left" Height="449" VerticalAlignment="Top" Width="845" Background="Magenta"/>
+        Title="RenderWindow" Height="480" WindowStyle="None" Width="854" ResizeMode="NoResize" FontSize="36">
+    <Viewbox>
+        <Grid Background="Lime" Width="1920" Height="1080">
+            <Image HorizontalAlignment="Left" Height="149.5" VerticalAlignment="Top" Width="219.25" Source="Assets/Logo.png" Stretch="None"/>
+            <Grid x:Name="Speedos" HorizontalAlignment="Left" Height="313" VerticalAlignment="Bottom" Width="1920">
+                <Controls:Speedometer x:Name="MiscSpeedo" HorizontalAlignment="Left" Margin="1430,134,0,0" VerticalAlignment="Top" PartyColor="#FF646464" PartyName="Other Parties" Width="300"/>
+                <Controls:Speedometer x:Name="UkipSpeedo" HorizontalAlignment="Left" Margin="1159,134,0,0" VerticalAlignment="Top" PartyColor="#FF9E0097" PartyName="UKIP" Width="300"/>
+                <Controls:Speedometer x:Name="LibDemSpeedo" HorizontalAlignment="Left" Margin="891,134,0,0" VerticalAlignment="Top" PartyColor="#FFB89600" PartyName="Liberal Democrats" Width="300"/>
+                <Controls:Speedometer x:Name="LabourSpeedo" HorizontalAlignment="Left" Margin="433,14,0,0" VerticalAlignment="Top" PartyColor="#FFDA0000" PartyName="Labour" Width="500"/>
+                <Controls:Speedometer x:Name="ConservativeSpeedo" HorizontalAlignment="Left" Margin="-17,14,0,0" VerticalAlignment="Top" PartyColor="#FF0000C5" PartyName="Conservatives" Width="500"/>
+            </Grid>
+        </Grid>
 
-    </Grid>
+    </Viewbox>
 </Window>

@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectionOverlays"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Election Overlay App" Height="369.245" Width="715.176">
     <Grid>
-        <ToggleButton Content="ToggleButton" HorizontalAlignment="Left" Margin="142,117,0,0" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="RenderToggle" Content="RENDER ACTIVE" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FFFF7D7D" FontWeight="Bold" FontSize="16" Height="40" Width="145" Click="RenderToggle_Click"/>
+        <Button x:Name="Render_MaximiseButton" Content="State MAX" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="69" Height="40" Click="Render_MaximiseButton_Click"/>
+        <Button x:Name="Render_NormalButton" Content="State NORM" HorizontalAlignment="Left" Margin="86,55,0,0" VerticalAlignment="Top" Width="69" Height="40" Click="Render_NormalButton_Click"/>
+        <Button x:Name="Rem1" Content="-1" HorizontalAlignment="Left" Height="39" Margin="180,22,0,0" VerticalAlignment="Top" Width="49" Click="Rem1_Click"/>
+        <Button x:Name="Add1" Content="+1" HorizontalAlignment="Left" Height="39" Margin="308,22,0,0" VerticalAlignment="Top" Width="48" Click="Add1_Click"/>
+        <TextBox x:Name="SetTextbox" HorizontalAlignment="Left" Height="18" Margin="230,22,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="77"/>
+        <Button Content="Set" HorizontalAlignment="Left" Height="17" Margin="239,44,0,0" VerticalAlignment="Top" Width="58" Click="Button_Click"/>
+        <GroupBox Header="Seatometers" HorizontalAlignment="Left" Height="247" Margin="397,10,0,0" VerticalAlignment="Top" Width="247" RenderTransformOrigin="0.5,0.5">
+            <TextBlock HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        </GroupBox>
 
     </Grid>
 </Window>
