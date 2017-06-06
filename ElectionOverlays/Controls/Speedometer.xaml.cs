@@ -58,7 +58,9 @@ namespace ElectionOverlays.Controls
 
             DoubleAnimation growAnimation = new DoubleAnimation();
             growAnimation.Duration = duration;
-            growAnimation.EasingFunction = (new CubicEase());
+            var ease = new CubicEase();
+            ease.EasingMode = EasingMode.EaseOut;
+            growAnimation.EasingFunction = ease;
             growAnimation.From = oldangle;
             growAnimation.To = newangle;
             storyboard.Children.Add(growAnimation);

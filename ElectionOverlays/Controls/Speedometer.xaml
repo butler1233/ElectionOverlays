@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ElectionOverlays.Controls.Speedometer"
+﻿<UserControl x:Name="userControl" x:Class="ElectionOverlays.Controls.Speedometer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:ElectionOverlays.Controls"
              mc:Ignorable="d" ClipToBounds="True" >
     <Viewbox>
-    <Grid Width="560" Height="335">
-        <Border x:Name="SpeedBackgroundPanel" BorderBrush="Black" BorderThickness="1" Height="511.378" Margin="24.828,37.753,23.793,-210.131" VerticalAlignment="Top" CornerRadius="267">
-            <Grid>
-                <TextBlock x:Name="PartyNameTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="party" VerticalAlignment="Top" TextAlignment="Center" FontSize="36" Margin="0,177,0,0" Foreground="#FFD6D6D6" FontFamily="Segoe UI Semibold"/>
-                <TextBlock x:Name="Seats" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="72" Foreground="#FFD6D6D6" FontFamily="Agency FB" Margin="0,103,0,0" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+        <Grid Width="560" Height="335">
+            <Border x:Name="SpeedBackgroundPanel" BorderBrush="Black" BorderThickness="1" Height="511.378" Margin="24.828,37.753,23.793,-210.131" VerticalAlignment="Top" CornerRadius="267">
+                <Grid>
+                    <TextBlock x:Name="PartyNameTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="party" VerticalAlignment="Top" TextAlignment="Center" FontSize="36" Margin="0,177,0,0" Foreground="{Binding Foreground, ElementName=userControl}" FontFamily="Segoe UI Semibold"/>
+                    <TextBlock x:Name="Seats" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Center" FontSize="72" Foreground="{Binding Foreground, ElementName=userControl}" FontFamily="Agency FB" Margin="0,103,0,0" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -21,20 +21,20 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
                 </Grid>
-        </Border>
+            </Border>
 
-        <Image x:Name="SpeedoMain" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/ElectionOverlays;component/Assets/speedo.png" Stretch="None" Height="339"/>
-        <Image x:Name="Needle" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="None" Source="speedoneedle.png" Margin="0,258.341,0,0" RenderTransformOrigin="0.5,0.5" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform x:Name="needletransform" Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+            <Image x:Name="SpeedoMain" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/ElectionOverlays;component/Assets/speedo.png" Stretch="None" Height="339"/>
+            <Image x:Name="Needle" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="None" Source="speedoneedle.png" Margin="0,260,0,0" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform x:Name="needletransform" Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
-    </Grid>
+        </Grid>
     </Viewbox>
 </UserControl>

@@ -55,20 +55,118 @@ namespace ElectionOverlays
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        #region "Seatometers"
+        private void ShowSpeedoButton_Click(object sender, RoutedEventArgs e)
         {
-            render.speedo1.SetSeats(Convert.ToInt32(SetTextbox.Text));
+            render.Anim_ShowSpeedo();
         }
 
-        private void Rem1_Click(object sender, RoutedEventArgs e)
+        private void HideSpeedoButton_Click(object sender, RoutedEventArgs e)
         {
-            render.speedo1.SetSeats(render.speedo1.GetSeats() - 1);
+            render.Anim_HideSpeedo();
         }
 
-        private void Add1_Click(object sender, RoutedEventArgs e)
+        //CON
+        private void ConRem_Click(object sender, RoutedEventArgs e)
         {
-            render.speedo1.SetSeats(render.speedo1.GetSeats() + 1);
+            render.ConservativeSpeedo.SetSeats(render.ConservativeSpeedo.GetSeats() - 1);
+            ConSeats.Text = render.ConservativeSpeedo.GetSeats().ToString();
         }
+        private void ConAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.ConservativeSpeedo.SetSeats(render.ConservativeSpeedo.GetSeats() + 1);
+            ConSeats.Text = render.ConservativeSpeedo.GetSeats().ToString();
+        }
+        private void ConSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.ConservativeSpeedo.SetSeats(Convert.ToInt32(ConSeats.Text));
+            ConSeats.Text = render.ConservativeSpeedo.GetSeats().ToString();
+        }
+        //LAB
+        private void LabRem_Click(object sender, RoutedEventArgs e)
+        {
+            render.LabourSpeedo.SetSeats(render.LabourSpeedo.GetSeats() - 1);
+            LabSeats.Text = render.LabourSpeedo.GetSeats().ToString();
+        }
+        private void LabAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.LabourSpeedo.SetSeats(render.LabourSpeedo.GetSeats() + 1);
+            LabSeats.Text = render.LabourSpeedo.GetSeats().ToString();
+        }
+        private void LabSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.LabourSpeedo.SetSeats(Convert.ToInt32(LabSeats.Text));
+            LabSeats.Text = render.LabourSpeedo.GetSeats().ToString();
+        }
+        //LBDM
+        private void LbdRem_Click(object sender, RoutedEventArgs e)
+        {
+            render.LibDemSpeedo.SetSeats(render.LibDemSpeedo.GetSeats() - 1);
+            LibSeats.Text = render.LibDemSpeedo.GetSeats().ToString();
+        }
+        private void LbdAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.LibDemSpeedo.SetSeats(render.LibDemSpeedo.GetSeats() + 1);
+            LibSeats.Text = render.LibDemSpeedo.GetSeats().ToString();
+        }
+        private void LbdSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.LibDemSpeedo.SetSeats(Convert.ToInt32(LibSeats.Text));
+            LibSeats.Text = render.LibDemSpeedo.GetSeats().ToString();
+        }
+        //Ukip
+        private void UkipRem_Click(object sender, RoutedEventArgs e)
+        {
+            render.UkipSpeedo.SetSeats(render.UkipSpeedo.GetSeats() - 1);
+            UkipSeats.Text = render.UkipSpeedo.GetSeats().ToString();
+        }
+        private void UkipAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.UkipSpeedo.SetSeats(render.UkipSpeedo.GetSeats() + 1);
+            UkipSeats.Text = render.UkipSpeedo.GetSeats().ToString();
+        }
+        private void UkipSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.UkipSpeedo.SetSeats(Convert.ToInt32(UkipSeats.Text));
+            UkipSeats.Text = render.UkipSpeedo.GetSeats().ToString();
+        }
+        //SNP
+        private void SnpRem_Click(object sender, RoutedEventArgs e)
+        {
+            render.SNPSpeedo.SetSeats(render.SNPSpeedo.GetSeats() - 1);
+            SNPSeats.Text = render.SNPSpeedo.GetSeats().ToString();
+        }
+        private void SnpAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.SNPSpeedo.SetSeats(render.SNPSpeedo.GetSeats() + 1);
+            SNPSeats.Text = render.SNPSpeedo.GetSeats().ToString();
+        }
+        private void SnpSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.SNPSpeedo.SetSeats(Convert.ToInt32(SNPSeats.Text));
+            SNPSeats.Text = render.SNPSpeedo.GetSeats().ToString();
+        }
+        //Other
+        private void OthRem_Click(object sender, RoutedEventArgs e)
+        {
+            render.MiscSpeedo.SetSeats(render.MiscSpeedo.GetSeats() - 1);
+            OthSeats.Text = render.MiscSpeedo.GetSeats().ToString();
+        }
+        private void OthAdd_Click(object sender, RoutedEventArgs e)
+        {
+            render.MiscSpeedo.SetSeats(render.MiscSpeedo.GetSeats() + 1);
+            OthSeats.Text = render.MiscSpeedo.GetSeats().ToString();
+        }
+        private void OthSet_Click(object sender, RoutedEventArgs e)
+        {
+            render.MiscSpeedo.SetSeats(Convert.ToInt32(OthSeats.Text));
+            OthSeats.Text = render.MiscSpeedo.GetSeats().ToString();
+        }
+
+
+        #endregion
 
 
     }
