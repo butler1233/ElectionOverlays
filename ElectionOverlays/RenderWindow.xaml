@@ -44,6 +44,7 @@
                 <Controls:Speedometer x:Name="LabourSpeedo" HorizontalAlignment="Left" Margin="433,14,0,0" VerticalAlignment="Top" PartyColor="#FFA80000" PartyName="Labour" Width="500" Foreground="White"/>
                 <Controls:Speedometer x:Name="ConservativeSpeedo" HorizontalAlignment="Left" Margin="-17,14,0,0" VerticalAlignment="Top" PartyColor="#FF0066A6" PartyName="Conservatives" Width="500" Foreground="White"/>
             </Grid>
+            <WrapPanel x:Name="Declarations" HorizontalAlignment="Right" VerticalAlignment="Top" Width="500" Margin="949.5,98,0,0" MinHeight="100" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
         </Grid>
 
     </Viewbox>

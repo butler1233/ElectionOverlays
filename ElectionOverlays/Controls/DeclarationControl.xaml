@@ -1,0 +1,226 @@
+﻿<UserControl x:Name="userControl" x:Class="ElectionOverlays.Controls.DeclarationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ElectionOverlays.Controls"
+             mc:Ignorable="d" Height="60" Width="500" RenderTransformOrigin="0.5,0.5" MaxWidth="500" MaxHeight="60" MinWidth="500" MinHeight="60">
+    <UserControl.Resources>
+        <Storyboard x:Key="AnimateBorder" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(GradientBrush.GradientStops)[4].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.15">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0.99">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(GradientBrush.GradientStops)[2].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.08">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0.92">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(GradientBrush.GradientStops)[3].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.01">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0.85">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ANimateGlass" AutoReverse="True" RepeatBehavior="Forever">
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.RelativeTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="AnimatedGlass">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="1.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:40" Value="0.75">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="1.5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="PartyTransition">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.997">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.001"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.998">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.002"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.999">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[3].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.003"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SlideIn">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="3,6,-10,6">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseOut"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="RenderHeight">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="userControl">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.LayoutTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.LayoutTransform>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimateBorder}"/>
+            <BeginStoryboard Storyboard="{StaticResource ANimateGlass}"/>
+            <BeginStoryboard Storyboard="{StaticResource RenderHeight}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid x:Name="grid" Margin="3,6,-510,6" 
+          Height="48" Width="500" MinWidth="500" MinHeight="30" HorizontalAlignment="Right" >
+        <Border x:Name="ShinyBorder" BorderThickness="4" CornerRadius="9" ClipToBounds="True" Margin="-3,-3,0,-3">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0" SpreadMethod="Reflect">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1.05" ScaleY="1.02"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-2" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop x:Name="NewPartyGradStop" Color="#FF000CFF" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="White" Offset="0.002"/>
+                    <GradientStop x:Name="OldPartyGradStop" Color="Red" Offset="0.003"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="1,0.85" StartPoint="0,0.15">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="40" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF3C3C3C"/>
+                    <GradientStop Color="#FF3C3C3C" Offset="1"/>
+                    <GradientStop Color="#FF8D8D8D" Offset="0.08"/>
+                    <GradientStop Color="#FF3C3C3C" Offset="0.01"/>
+                    <GradientStop Color="#FF3C3C3C" Offset="0.15"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid x:Name="Darkener">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#3F000000" Offset="0.661"/>
+                        <GradientStop Color="#00000000"/>
+                        <GradientStop Color="#33000000" Offset="1"/>
+                        <GradientStop Color="#00000000" Offset="0.609"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid x:Name="AnimatedGlass" Margin="0,0,-2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/ElectionOverlays;component/Assets/glass png.png" Stretch="None" Opacity="0.4">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="2" ScaleY="2"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform X="0.5" Y="0.5"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Grid.Background>
+                    <TextBlock x:Name="DeclarationInfo" HorizontalAlignment="Right" TextWrapping="Wrap" Text="..." VerticalAlignment="Center" Foreground="White" Grid.Column="1" Margin="0,0,14,0" FontSize="36" FontFamily="Segoe UI Semibold">
+                        <TextBlock.LayoutTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                    <Viewbox StretchDirection="DownOnly" HorizontalAlignment="Left">
+                        <Grid>
+                            <TextBlock x:Name="Constit" TextWrapping="Wrap" Text="Constituency" Foreground="White" HorizontalAlignment="Left" FontSize="28" Margin="10,0,5,0"/>
+                        </Grid>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>
