@@ -696,6 +696,7 @@ namespace ElectionOverlays
             PartyColors.Add("LIB", Color.FromRgb(230, 140, 20));
             PartyColors.Add("UKIP", Color.FromRgb(183, 0, 157));
             PartyColors.Add("SNP", Color.FromRgb(216,187,0));
+            PartyColors.Add("PC", Color.FromRgb(216, 187, 0));
             PartyColors.Add("OTH", Color.FromRgb(100,100,100));
             FillCurrentData();
         }
@@ -894,6 +895,16 @@ namespace ElectionOverlays
         private void RemoveDeclaration(object Sender, EventArgs e)
         {
             render.Declarations.Children.Remove(Sender as DeclarationControl);
+        }
+
+        private void ShowTicker_Click(object sender, RoutedEventArgs e)
+        {
+            render.Anim_ShowTicker();
+        }
+
+        private void HideTicker_Click(object sender, RoutedEventArgs e)
+        {
+            render.Anim_HideTicker();
         }
     }
 }

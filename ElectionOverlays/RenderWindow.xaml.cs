@@ -41,7 +41,22 @@ namespace ElectionOverlays
             StartStoryboard("sbHideSpeedos");
         }
 
+        internal void Anim_ShowTicker()
+        {
+            StartStoryboard("TickerIn");
+        }
+        internal void Anim_HideTicker()
+        {
+            StartStoryboard("TickerOut");
+        }
 
+
+        public void SetZoom(double Zoom)
+        {
+            // For this code to work: add the Microsoft.mshtml .NET reference      
+            mshtml.IHTMLDocument2 doc = Ticker.Document as mshtml.IHTMLDocument2;
+            doc.parentWindow.execScript("document.body.style.zoom=" + Zoom.ToString().Replace(",", ".") + ";");
+        }
 
 
     }

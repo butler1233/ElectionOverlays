@@ -22,9 +22,27 @@
                 <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0"/>
             </ThicknessAnimationUsingKeyFrames>
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Speedos">
-                <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0,0,0,80">
                     <EasingThicknessKeyFrame.EasingFunction>
                         <CubicEase EasingMode="EaseOut"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TickerOut">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Ticker">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0,0,-20,-115">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TickerIn">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Ticker">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0,0,-20,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
                     </EasingThicknessKeyFrame.EasingFunction>
                 </EasingThicknessKeyFrame>
             </ThicknessAnimationUsingKeyFrames>
@@ -36,15 +54,25 @@
     <Viewbox>
         <Grid Background="Lime" Width="1920" Height="1080">
             <Image HorizontalAlignment="Left" Height="149.5" VerticalAlignment="Top" Width="219.25" Source="Assets/Logo.png" Stretch="None"/>
-            <Grid x:Name="Speedos" HorizontalAlignment="Left" Height="313" VerticalAlignment="Bottom" Width="1920" Margin="0,0,0,-313">
-                <Controls:Speedometer x:Name="MiscSpeedo" HorizontalAlignment="Left" Margin="1642,140,-12,0" VerticalAlignment="Top" PartyColor="#FF646464" PartyName="Other Parties" Width="290" Foreground="White"/>
-                <Controls:Speedometer x:Name="SNPSpeedo" HorizontalAlignment="Left" Margin="1392,140,0,0" VerticalAlignment="Top" PartyColor="#FFD8BB00" PartyName="SNP" Width="290" Foreground="White"/>
-                <Controls:Speedometer x:Name="UkipSpeedo" HorizontalAlignment="Left" Margin="1144,140,0,0" VerticalAlignment="Top" PartyColor="#FFB7009D" PartyName="UKIP" Width="290" Foreground="White"/>
-                <Controls:Speedometer x:Name="LibDemSpeedo" HorizontalAlignment="Left" Margin="897,140,0,0" VerticalAlignment="Top" PartyColor="#FFE68C14" PartyName="Liberal Democrats" Width="290" Foreground="White"/>
-                <Controls:Speedometer x:Name="LabourSpeedo" HorizontalAlignment="Left" Margin="433,14,0,0" VerticalAlignment="Top" PartyColor="#FFA80000" PartyName="Labour" Width="500" Foreground="White"/>
-                <Controls:Speedometer x:Name="ConservativeSpeedo" HorizontalAlignment="Left" Margin="-17,14,0,0" VerticalAlignment="Top" PartyColor="#FF0066A6" PartyName="Conservatives" Width="500" Foreground="White"/>
+            <WrapPanel x:Name="Declarations" HorizontalAlignment="Right" Width="500" Margin="0,49.5,0,0" MinHeight="100" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <Grid x:Name="Declaration_Fader" HorizontalAlignment="Left" Height="565.5" Margin="1323.75,514.5,0,0" VerticalAlignment="Top" Width="596.25">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0000FF00" Offset="0"/>
+                        <GradientStop Color="Lime" Offset="0.404"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
             </Grid>
-            <WrapPanel x:Name="Declarations" HorizontalAlignment="Right" VerticalAlignment="Top" Width="500" Margin="949.5,98,0,0" MinHeight="100" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <Grid x:Name="Speedos" HorizontalAlignment="Left" Height="313" VerticalAlignment="Bottom" Width="1920" Margin="0,0,0,-313">
+                <Controls:Speedometer x:Name="MiscSpeedo" HorizontalAlignment="Left" Margin="1588.09,140,0,0" VerticalAlignment="Top" PartyColor="#FF646464" PartyName="Other Parties" Width="290" Foreground="White"/>
+                <Controls:Speedometer x:Name="SNPSpeedo" HorizontalAlignment="Left" Margin="744.392,140,0,0" VerticalAlignment="Top" PartyColor="#FFD8BB00" PartyName="SNP/Plaid Cymru" Width="290" Foreground="White"/>
+                <Controls:Speedometer x:Name="UkipSpeedo" HorizontalAlignment="Left" Margin="1307.338,140,0,0" VerticalAlignment="Top" PartyColor="#FFB27B75" PartyName="Northern Ireland" Width="290" Foreground="White"/>
+                <Controls:Speedometer x:Name="LibDemSpeedo" HorizontalAlignment="Left" Margin="1025.634,139.999,0,0" VerticalAlignment="Top" PartyColor="#FFE68C14" PartyName="Liberal Democrats" Width="290" Foreground="White"/>
+                <Controls:Speedometer x:Name="LabourSpeedo" HorizontalAlignment="Left" Margin="404.936,103.626,0,-0.001" VerticalAlignment="Top" PartyColor="#FFA80000" PartyName="Labour" Width="350" Foreground="White"/>
+                <Controls:Speedometer x:Name="ConservativeSpeedo" HorizontalAlignment="Left" Margin="32.897,103.625,0,0" VerticalAlignment="Top" PartyColor="#FF0066A6" PartyName="Conservatives" Width="350" Foreground="White"/>
+            </Grid>
+            <WebBrowser x:Name="Ticker" VerticalAlignment="Bottom" Height="90" Source="http://apps.ad.whitehinge.com/ticker/" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="0,0,-20,-115"/>
+
         </Grid>
 
     </Viewbox>

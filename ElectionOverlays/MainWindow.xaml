@@ -728,6 +728,8 @@
                 <Button x:Name="NewDeclarationButton" Content="New Declaration" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="112,10,0,0" Background="#FF32AC48" Foreground="White" Height="25.97" Click="NewDeclarationButton_Click"/>
             </Grid>
         </GroupBox>
+        <Button x:Name="ShowTicker" Content="SHOW TCIEKR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="347,18.96,0,0" Background="#FF009715" Foreground="White" Click="ShowTicker_Click"/>
+        <Button x:Name="HideTicker" Content="HIDE TICKER" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="505,18.96,0,0" Background="#FF970000" Foreground="White" Click="HideTicker_Click"/>
 
     </Grid>
 </Window>
