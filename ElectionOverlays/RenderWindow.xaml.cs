@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ElectionOverlays
 {
@@ -23,12 +24,19 @@ namespace ElectionOverlays
         public RenderWindow()
         {
             InitializeComponent();
+
+            clock.Interval = TimeSpan.FromSeconds(1);
+            clock.Tick += ClockTick;
+            clock.Start();
         }
+        DispatcherTimer clock = new DispatcherTimer();
 
         private void StartStoryboard(string ResourceKey)
         {
             var sb = (Storyboard)this.FindResource(ResourceKey);
             sb.Begin();
+
+            
         }
 
 
@@ -56,6 +64,14 @@ namespace ElectionOverlays
             // For this code to work: add the Microsoft.mshtml .NET reference      
             mshtml.IHTMLDocument2 doc = Ticker.Document as mshtml.IHTMLDocument2;
             doc.parentWindow.execScript("document.body.style.zoom=" + Zoom.ToString().Replace(",", ".") + ";");
+        }
+
+        public void ClockTick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            EasternClock.Text = time.AddHours(-5).ToString("HH:mm:ss");
+            PacificClock.Text = time.AddHours(-8).ToString("HH:mm:ss");
+            BstClock.Text = time.AddHours(0).ToString("HH:mm:ss");
         }
 
 

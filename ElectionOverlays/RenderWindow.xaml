@@ -47,9 +47,33 @@
                 </EasingThicknessKeyFrame>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="ClockAnim" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="EasternGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PacificGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.6" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.8" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BstGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:16" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:16.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ClockAnim}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Viewbox>
         <Grid Background="Lime" Width="1920" Height="1080">
@@ -71,7 +95,46 @@
                 <Controls:Speedometer x:Name="LabourSpeedo" HorizontalAlignment="Left" Margin="404.936,103.626,0,-0.001" VerticalAlignment="Top" PartyColor="#FFA80000" PartyName="Labour" Width="350" Foreground="White"/>
                 <Controls:Speedometer x:Name="ConservativeSpeedo" HorizontalAlignment="Left" Margin="32.897,103.625,0,0" VerticalAlignment="Top" PartyColor="#FF0066A6" PartyName="Conservatives" Width="350" Foreground="White"/>
             </Grid>
-            <WebBrowser x:Name="Ticker" VerticalAlignment="Bottom" Height="90" Source="http://apps.ad.whitehinge.com/ticker/" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="0,0,-20,-115"/>
+            <WebBrowser x:Name="Ticker" VerticalAlignment="Bottom" Height="90" Source="http://www.shif.co/Ticker/Ticker/" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="0,0,-20,-115"/>
+            <Grid x:Name="EasternGrid" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="216" Margin="-3,45,0,0">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="EST" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,13,0,0" FontWeight="Bold" FontSize="24" Foreground="White">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock x:Name="EasternClock" HorizontalAlignment="Left" Margin="40,5,0,-42" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Foreground="White"/>
+            </Grid>
+            <Grid x:Name="PacificGrid" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="216" Margin="-3,45,0,0">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="PST" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,13,0,0" FontWeight="Bold" FontSize="24" Foreground="White">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock x:Name="PacificClock" HorizontalAlignment="Left" Margin="40,5,0,-42" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Foreground="White"/>
+            </Grid>
+            <Grid x:Name="BstGrid" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="216" Margin="-3,45,0,0">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="BST" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,13,0,0" FontWeight="Bold" FontSize="24" Foreground="White">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock x:Name="BstClock" HorizontalAlignment="Left" Margin="40,5,0,-42" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Foreground="White"/>
+            </Grid>
 
         </Grid>
 

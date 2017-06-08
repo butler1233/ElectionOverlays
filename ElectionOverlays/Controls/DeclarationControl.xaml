@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectionOverlays.Controls"
-             mc:Ignorable="d" Height="60" Width="500" RenderTransformOrigin="0.5,0.5" MaxWidth="500" MaxHeight="60" MinWidth="500" MinHeight="60">
+             mc:Ignorable="d" Height="60" Width="500" RenderTransformOrigin="0.5,0.5" MaxWidth="500" MaxHeight="60" MinWidth="500" MinHeight="60" Background="Lime">
     <UserControl.Resources>
         <Storyboard x:Key="AnimateBorder" RepeatBehavior="Forever" AutoReverse="True">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(GradientBrush.GradientStops)[4].(GradientStop.Offset)" Storyboard.TargetName="ShinyBorder">
